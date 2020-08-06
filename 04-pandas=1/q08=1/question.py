@@ -15,5 +15,17 @@
 ##  4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
 ## 
 ##  >>> Escriba su codigo a partir de este punto <<<
-##
+import numpy as np
+import pandas as pd
+import csv
+
+
+separador=':'
+
+datos= pd.read_csv('tbl0.tsv', sep='\t', header=0 )
+datos['_c2']=datos['_c2'].apply(str)
+datos.sort_values(['_c1','_c2'],inplace=True)
+Tabla=datos[['_c1','_c2']].groupby('_c1')['_c2'].apply((separador.join)).reset_index()
+Tabla.rename(columns={'_c1':'_c0','_c2':'lista'},inplace=True)
+print(Tabla)
 
