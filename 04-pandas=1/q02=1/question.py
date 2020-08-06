@@ -15,4 +15,15 @@
 ##  Name: _c2, dtype: float64
 ##
 ##  >>> Escriba su codigo a partir de este punto <<<
-##
+import pandas as pd
+
+import numpy as np
+
+
+
+df = pd.read_csv('tbl0.tsv', sep='\t')
+
+
+df1 = df.groupby('_c1')['_c2'].mean()
+
+print(df1)
