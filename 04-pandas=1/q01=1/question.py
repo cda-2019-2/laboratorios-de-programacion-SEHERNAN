@@ -15,4 +15,11 @@
 ##  Name: _c0, dtype: int64
 ##
 ##  >>> Escriba su codigo a partir de este punto <<<
-##
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('data.tsv', sep='\t')
+
+df1 = df.groupby ('_c1')['_c0'].size()
+print (df1)
+
